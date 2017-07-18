@@ -24,6 +24,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return false
     }
+    
+    func setupNavigationStyle() {
+        UINavigationBar.appearance().barTintColor = UIColor(red: 230/255, green: 20/255, blue: 20/255, alpha: 1)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        
+        let navigationBackgroundBar: UIView = {
+            let view = UIView()
+            view.backgroundColor = UIColor(red: 220/255, green: 10/255, blue: 10/255, alpha: 1)
+            view.translatesAutoresizingMaskIntoConstraints = false
+            return view
+        }()
+        
+        window?.addSubview(navigationBackgroundBar)
+        window?.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|",
+                                                              options: NSLayoutFormatOptions(),
+                                                              metrics: nil,
+                                                              views: ["v0":navigationBackgroundBar]))
+        
+        window?.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0(20)]",
+                                                              options: NSLayoutFormatOptions(),
+                                                              metrics: nil,
+                                                              views: ["v0":navigationBackgroundBar]))
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -35,6 +58,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rootViewController = userHasPreviouslyLoggedIn() ? HomeViewController() : WelcomeViewController()
         window?.rootViewController = UINavigationController(rootViewController: rootViewController)
         
+        // Setup NavigationBar
+        setupNavigationStyle()
+        application.statusBarStyle = .lightContent
+       
         return true
     }
 

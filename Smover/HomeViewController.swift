@@ -9,5 +9,15 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupHomeView()
+    }
+    
+    func setupHomeView() {
+        view.backgroundColor = UIColor.white
+        title = "Smover"
+    }
     
 }

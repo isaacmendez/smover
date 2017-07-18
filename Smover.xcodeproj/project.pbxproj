@@ -58,11 +58,11 @@
 		5B3565651F1E4BD5007E4A71 /* Smover */ = {
 			isa = PBXGroup;
 			children = (
-				5B3565801F1E52B6007E4A71 /* HomeView */,
+				5B3565841F1E55B4007E4A71 /* Views */,
+				5B3565831F1E55A6007E4A71 /* Helpers */,
 				5B35657D1F1E4F0E007E4A71 /* Assets */,
 				5B3565661F1E4BD5007E4A71 /* AppDelegate.swift */,
 				5B35657C1F1E4EFA007E4A71 /* Data Model */,
-				5B35657B1F1E4EEC007E4A71 /* WelcomeView */,
 				5B3565721F1E4BD5007E4A71 /* LaunchScreen.storyboard */,
 				5B3565751F1E4BD5007E4A71 /* Info.plist */,
 			);
@@ -100,6 +100,22 @@
 				5B3565811F1E52C4007E4A71 /* HomeViewController.swift */,
 			);
 			name = HomeView;
+			sourceTree = "<group>";
+		};
+		5B3565831F1E55A6007E4A71 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		5B3565841F1E55B4007E4A71 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5B3565801F1E52B6007E4A71 /* HomeView */,
+				5B35657B1F1E4EEC007E4A71 /* WelcomeView */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
