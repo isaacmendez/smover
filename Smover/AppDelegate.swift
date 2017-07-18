@@ -14,13 +14,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    // Checks if the user has logged in before and returns a boolean
+    func userHasPreviouslyLoggedIn() -> Bool {
+        if let path = Bundle.main.path(forResource: "UserData", ofType: "plist") {
+            if let dictionary = NSDictionary(contentsOfFile: path) as? [String:Any],
+                let userHasLoggedIn = dictionary["userHasPreviouslyLoggedIn"] as? Bool {
+                    return userHasLoggedIn
+            }
+        }
+        return false
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         // Setup the application window and make it the root view controller
+        // Optionally load the welcome tutorial if the user hasn't previously logged in
+        // This property is set in the info.plist
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        let rootViewController = WelcomeViewController()
+        let rootViewController = userHasPreviouslyLoggedIn() ? HomeViewController() : WelcomeViewController()
         window?.rootViewController = UINavigationController(rootViewController: rootViewController)
         
         return true
