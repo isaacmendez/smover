@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         return false
-    }
+    } 
     
     func setupNavigationStyle() {
         UINavigationBar.appearance().barTintColor = UIColor(red: 230/255, green: 20/255, blue: 20/255, alpha: 1)
@@ -47,6 +47,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                               metrics: nil,
                                                               views: ["v0":navigationBackgroundBar]))
     }
+    
+    func setupTabBarController(with views:[UIViewController]) -> UITabBarController {
+        let tabBarController: UITabBarController = {
+            let tabBar = UITabBarController()
+            tabBar.viewControllers = views
+            tabBar.tabBar.barTintColor = UIColor(red: 20/255, green: 20/255, blue: 20/255, alpha: 1.0)
+            tabBar.tabBar.tintColor = UIColor.white
+            return tabBar
+        }()
+        return tabBarController
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -55,10 +66,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // This property is set in the info.plist
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        let rootViewController = userHasPreviouslyLoggedIn() ? HomeViewController() : WelcomeViewController()
-        window?.rootViewController = UINavigationController(rootViewController: rootViewController)
+        // let rootViewController = userHasPreviouslyLoggedIn() ? HomeViewController() : WelcomeViewController()
+    
+        let homeViewController = HomeViewController()
+        homeViewController.tabBarItem.image = UIImage(named: "smover-30")
         
+        let optionsViewController = OptionsViewController(style: .plain)
+        optionsViewController.tabBarItem.image = UIImage(named: "options-30")
+        
+        if userHasPreviouslyLoggedIn() {
+            let welcomeViewController = WelcomeViewController()
+        }
+    
+        let tabController = setupTabBarController(with: [homeViewController, optionsViewController])
+        
+        // window?.rootViewController = tabController
+        window?.rootViewController = UINavigationController(rootViewController: tabController)
         // Setup NavigationBar
+    
+        
         setupNavigationStyle()
         application.statusBarStyle = .lightContent
        
