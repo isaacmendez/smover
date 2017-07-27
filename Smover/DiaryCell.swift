@@ -46,6 +46,12 @@ class DiaryCell: UICollectionViewCell {
         
     }
     
+    override var isHighlighted: Bool {
+        didSet {
+            backgroundColor = isHighlighted ? UIColor.init(red: 20/255, green: 20/255, blue: 20/200, alpha: 0.5) : .white
+        }
+    }
+    
     func addDiaryTitleConstraints() {
         let leftConstraint = NSLayoutConstraint(item: diaryTitleView, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1, constant: 10)
         let topConstraint = NSLayoutConstraint(item: diaryTitleView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 10)

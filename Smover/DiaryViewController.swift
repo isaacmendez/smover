@@ -24,6 +24,7 @@ class DiaryViewController: UICollectionViewController {
         setupFetchedResultsController()
         do {
             try fetchedResultsController?.performFetch()
+            collectionView?.reloadData()
         } catch let error {
             print(error.localizedDescription)
         }
@@ -79,21 +80,43 @@ extension DiaryViewController: NSFetchedResultsControllerDelegate {
 extension DiaryViewController: UICollectionViewDelegateFlowLayout {
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return fetchedResultsController?.sections?.count ?? 0
+        // We'll stick to one section for now
         return 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // We'll stick to one section for now
-//        return fetchedResultsController?.sections?[0].numberOfObjects ?? 0
-        return 8
+        return fetchedResultsController?.sections?[0].numberOfObjects ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let diaryCell = collectionView.dequeueReusableCell(withReuseIdentifier: diaryCellID, for: indexPath) as! DiaryCell
         
+        if let currentDiaryEntry = fetchedResultsController?.fetchedObjects,
+        let entry = currentDiaryEntry[indexPath.item] as? DiaryEntry {
+            diaryCell.diaryTitleView.text = entry.title
+            diaryCell.diaryPreviewView.text = entry.entryBody
+            
+        }
         return diaryCell
     }
+    
+    // MARK: Cell Selection
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let selectedCell = fetchedResultsController?.object(at: indexPath) {
+            let selectedEntry = selectedCell as DiaryEntry
+            let diaryDetailView = DiaryDetailView()
+            diaryDetailView.diaryEntry = selectedEntry
+    
+            navigationController?.pushViewController(diaryDetailView, animated: true)
+        }
+    }
+    
+    
+    
+    
+    // MARK: Layout of Cells
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.size.width, height: 100)
@@ -104,6 +127,18 @@ extension DiaryViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+
+// MARK: Handle the changes in the Collection View when an entry is made
+
+extension DiaryViewController {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        if type == .insert {
+            navigationController?.popViewController(animated: true)
+            collectionView?.insertItems(at: [newIndexPath!])
+            collectionView?.scrollToItem(at: newIndexPath!, at: .top, animated: true)
+        }
+    }
+}
 
 
 

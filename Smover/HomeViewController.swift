@@ -14,7 +14,7 @@ class HomeViewController: UIViewController {
     
     let scrollViewContainer: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.backgroundColor = .red
+        scrollView.backgroundColor = .white
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()

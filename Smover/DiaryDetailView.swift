@@ -11,6 +11,8 @@ import CoreData
 
 class DiaryDetailView: UIViewController {
     
+    var diaryEntry: DiaryEntry?
+    
     let diaryNotetitle: UITextField = {
         let inputView = UITextField()
         inputView.translatesAutoresizingMaskIntoConstraints = false
@@ -24,18 +26,26 @@ class DiaryDetailView: UIViewController {
         inputView.translatesAutoresizingMaskIntoConstraints = false
         inputView.backgroundColor = .red
         inputView.placeholder = "Enter Note Here"
+        inputView.enablesReturnKeyAutomatically = true
+        inputView.contentVerticalAlignment = .top
         return inputView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        checkForDiaryEntry()
         
         view.addSubview(diaryNotetitle)
         view.addSubview(diaryNoteTextView)
         applyDiaryTitleConstraints()
         applyDiaryNoteConstraints()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        checkForDiaryEntry()
     }
     
     func setupView() {
@@ -45,19 +55,28 @@ class DiaryDetailView: UIViewController {
         self.navigationController?.topViewController?.navigationItem.setRightBarButton(saveBarButton, animated: true)
     }
     
+    func checkForDiaryEntry() {
+        if let diaryEntry = diaryEntry {
+            self.diaryNotetitle.text = diaryEntry.title
+            self.diaryNoteTextView.text = diaryEntry.entryBody
+        }
+    }
+    
     func saveDiaryEntry() {
         // Some checks before saving
         guard diaryNotetitle.text != nil else { return }
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         
         let context = appDelegate.persistentContainer.viewContext
-        let diaryEntry = NSEntityDescription.insertNewObject(forEntityName: DiaryEntry.description(), into: context) as? DiaryEntry
+        let diaryEntry = NSEntityDescription.insertNewObject(forEntityName: "DiaryEntry", into: context) as? DiaryEntry
         
         diaryEntry?.date = NSDate()
+        diaryEntry?.title = diaryNotetitle.text
         diaryEntry?.entryBody = diaryNoteTextView.text
         
         do {
             try context.save()
+            
         } catch let error {
             print(error.localizedDescription)
         }
