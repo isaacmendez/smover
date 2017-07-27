@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B2C86911F29CDFD00C5240E /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C86901F29CDFD00C5240E /* DiaryViewController.swift */; };
+		5B2C86931F29D0CA00C5240E /* DiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C86921F29D0CA00C5240E /* DiaryCell.swift */; };
 		5B3565671F1E4BD5007E4A71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3565661F1E4BD5007E4A71 /* AppDelegate.swift */; };
 		5B3565691F1E4BD5007E4A71 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3565681F1E4BD5007E4A71 /* WelcomeController.swift */; };
 		5B35656F1F1E4BD5007E4A71 /* Smover.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B35656D1F1E4BD5007E4A71 /* Smover.xcdatamodeld */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B2C86901F29CDFD00C5240E /* DiaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
+		5B2C86921F29D0CA00C5240E /* DiaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryCell.swift; sourceTree = "<group>"; };
 		5B3565631F1E4BD5007E4A71 /* Smover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B3565661F1E4BD5007E4A71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B3565681F1E4BD5007E4A71 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
@@ -41,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B2C868F1F29CDEE00C5240E /* Diary */ = {
+			isa = PBXGroup;
+			children = (
+				5B2C86901F29CDFD00C5240E /* DiaryViewController.swift */,
+				5B2C86921F29D0CA00C5240E /* DiaryCell.swift */,
+			);
+			name = Diary;
+			sourceTree = "<group>";
+		};
 		5B35655A1F1E4BD4007E4A71 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +127,7 @@
 		5B3565841F1E55B4007E4A71 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5B2C868F1F29CDEE00C5240E /* Diary */,
 				5BB12B1B1F2212D5008C6434 /* Options */,
 				5B3565801F1E52B6007E4A71 /* HomeView */,
 				5B35657B1F1E4EEC007E4A71 /* WelcomeView */,
@@ -203,9 +217,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B35656F1F1E4BD5007E4A71 /* Smover.xcdatamodeld in Sources */,
+				5B2C86931F29D0CA00C5240E /* DiaryCell.swift in Sources */,
 				5B3565691F1E4BD5007E4A71 /* WelcomeController.swift in Sources */,
 				5B3565671F1E4BD5007E4A71 /* AppDelegate.swift in Sources */,
 				5B3565821F1E52C4007E4A71 /* HomeViewController.swift in Sources */,
+				5B2C86911F29CDFD00C5240E /* DiaryViewController.swift in Sources */,
 				5BB12B1D1F2212DD008C6434 /* OptionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

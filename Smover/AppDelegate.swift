@@ -74,11 +74,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let optionsViewController = OptionsViewController(style: .plain)
         optionsViewController.tabBarItem.image = UIImage(named: "options-30")
         
+        let cvflowlayout = UICollectionViewFlowLayout()
+        let diaryViewController = DiaryViewController(collectionViewLayout: cvflowlayout)
+        diaryViewController.tabBarItem.image = UIImage(named: "smover-30")
+        
         if userHasPreviouslyLoggedIn() {
             let welcomeViewController = WelcomeViewController()
         }
     
-        let tabController = setupTabBarController(with: [homeViewController, optionsViewController])
+        let tabController = setupTabBarController(with: [homeViewController, diaryViewController, optionsViewController])
         
         // window?.rootViewController = tabController
         window?.rootViewController = UINavigationController(rootViewController: tabController)
