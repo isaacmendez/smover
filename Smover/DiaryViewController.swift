@@ -19,7 +19,6 @@ class DiaryViewController: UICollectionViewController {
         super.viewDidLoad()
         setupDiaryView()
         collectionView?.register(DiaryCell.self, forCellWithReuseIdentifier: diaryCellID)
-        collectionView?.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 50.0, right: 0)
         collectionView?.showsVerticalScrollIndicator = false
         
         setupFetchedResultsController()
@@ -33,12 +32,20 @@ class DiaryViewController: UICollectionViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        let addButton =  UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.addDiaryEntry))
+        
         self.navigationController?.topViewController?.title = viewTitle
+        self.navigationController?.topViewController?.navigationItem.setRightBarButton(addButton, animated: true)
     }
     
     func setupDiaryView() {
         title = viewTitle
         collectionView?.backgroundColor = .white
+        
+    }
+    
+    func addDiaryEntry() {
+        print("add")
     }
     
     override init(collectionViewLayout layout: UICollectionViewLayout) {
@@ -91,6 +98,9 @@ extension DiaryViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: collectionView.frame.size.width, height: 100)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 5, left: 0, bottom: 50.0, right: 0)
+    }
 }
 
 
