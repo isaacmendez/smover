@@ -13,14 +13,12 @@ class DiaryCell: UICollectionViewCell {
     var diaryTitleView: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .black
         return label
     }()
     
     var diaryPreviewView: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .green
         return label
     }()
     
