@@ -45,7 +45,8 @@ class DiaryViewController: UICollectionViewController {
     }
     
     func addDiaryEntry() {
-        print("add")
+        let detailView = DiaryDetailView()
+        navigationController?.pushViewController(detailView, animated: true)
     }
     
     override init(collectionViewLayout layout: UICollectionViewLayout) {
