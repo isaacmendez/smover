@@ -9,15 +9,24 @@
 import UIKit
 import CoreData
 
-class OptionsViewController: UITableViewController {
+class OptionsViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let viewTitle = "Options"
     
+    var isCodTurkeyMode: Bool?
+    
+    
+    let optionsToggle: UISwitch = {
+        let sw = UISwitch()
+        sw.translatesAutoresizingMaskIntoConstraints = false
+        return sw
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.tintColor = .white
-        self.navigationController?.navigationBar.barStyle = .black
         setupOptionsView()
+        
+        
         
     }
     
@@ -30,12 +39,8 @@ class OptionsViewController: UITableViewController {
     func setupOptionsView() {
         view.backgroundColor = UIColor.white
         title = viewTitle
-    }
-    
-    override init(style: UITableViewStyle) {
-        super.init(style: style)
-        self.title = viewTitle
-        
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.barStyle = .black
     }
     
     required init?(coder aDecoder: NSCoder) {
