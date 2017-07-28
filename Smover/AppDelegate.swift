@@ -71,7 +71,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let homeViewController = HomeViewController()
         homeViewController.tabBarItem.image = UIImage(named: "smover-30")
         
-        let optionsViewController = OptionsViewController(style: .plain)
+        let collectionViewFlowLayout = UICollectionViewFlowLayout()
+        let optionsViewController = OptionsViewController(collectionViewLayout: collectionViewFlowLayout)
         optionsViewController.tabBarItem.image = UIImage(named: "options-30")
         
         let cvflowlayout = UICollectionViewFlowLayout()
