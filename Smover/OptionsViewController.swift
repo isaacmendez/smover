@@ -44,10 +44,9 @@ class OptionsViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         let headerCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerCellID, for: indexPath) as! OptionsHeaderCell
-        
+        headerCell.headerTitle.text = "Cold Turkey Mode"
         if kind == UICollectionElementKindSectionHeader {
            
-//            headerCell.frame = CGRect(x: 0, y: 0, width: collectionView.frame.width, height: 100)
             return headerCell
         }
         return headerCell
@@ -67,24 +66,30 @@ class OptionsViewController: UICollectionViewController {
 
 extension OptionsViewController: UICollectionViewDelegateFlowLayout {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 10
+        return 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let singleOptionCell = collectionView.dequeueReusableCell(withReuseIdentifier: optionCellID, for: indexPath) as! SingleOption
-        
+
         return singleOptionCell
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        // Build a data model for the available options
+        // Import the otpions and setting values
+        // Set the text and the values
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 200)
+        return CGSize(width: collectionView.frame.width, height: 120)
     }
     
+    
+    //MARK: Header Size
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 200)
+        return CGSize(width: collectionView.frame.width, height: 50)
     }
 }

@@ -23,7 +23,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         return false
-    } 
+    }
+    
+    func loadOptions() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<AppMode> = AppMode.fetchRequest()
+        
+        do {
+         let result = try context.fetch(fetchRequest)
+            if result.count == 0 {
+                // This is the app's first launch so let's place defaults in the data model
+                let appModeDescription = NSEntityDescription.insertNewObject(forEntityName: AppMode.description(), into: context) as! AppMode
+                appModeDescription.isColdTurkeyModeActive = false
+                try context.save()
+            } 
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
     
     func setupNavigationStyle() {
         UINavigationBar.appearance().barTintColor = UIColor(red: 230/255, green: 20/255, blue: 20/255, alpha: 1)
@@ -61,12 +79,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        // Setup the application window and make it the root view controller
-        // Optionally load the welcome tutorial if the user hasn't previously logged in
-        // This property is set in the info.plist
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        // let rootViewController = userHasPreviouslyLoggedIn() ? HomeViewController() : WelcomeViewController()
+        loadOptions()
     
         let homeViewController = HomeViewController()
         homeViewController.tabBarItem.image = UIImage(named: "smover-30")

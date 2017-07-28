@@ -12,6 +12,7 @@
 		5B2C869E1F29F21B00C5240E /* DiaryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C869D1F29F21B00C5240E /* DiaryDetailView.swift */; };
 		5B2C86A01F2A3B5E00C5240E /* SingleOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C869F1F2A3B5E00C5240E /* SingleOption.swift */; };
 		5B2C86A21F2A4B0700C5240E /* OptionsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C86A11F2A4B0700C5240E /* OptionsHeaderCell.swift */; };
+		5B2C86A41F2B49CF00C5240E /* ColdTurkeyModeIsActive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2C86A31F2B49CF00C5240E /* ColdTurkeyModeIsActive.swift */; };
 		5B3565671F1E4BD5007E4A71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3565661F1E4BD5007E4A71 /* AppDelegate.swift */; };
 		5B3565691F1E4BD5007E4A71 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3565681F1E4BD5007E4A71 /* WelcomeController.swift */; };
 		5B35656F1F1E4BD5007E4A71 /* Smover.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B35656D1F1E4BD5007E4A71 /* Smover.xcdatamodeld */; };
@@ -28,6 +29,7 @@
 		5B2C869D1F29F21B00C5240E /* DiaryDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryDetailView.swift; sourceTree = "<group>"; };
 		5B2C869F1F2A3B5E00C5240E /* SingleOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleOption.swift; sourceTree = "<group>"; };
 		5B2C86A11F2A4B0700C5240E /* OptionsHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsHeaderCell.swift; sourceTree = "<group>"; };
+		5B2C86A31F2B49CF00C5240E /* ColdTurkeyModeIsActive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColdTurkeyModeIsActive.swift; sourceTree = "<group>"; };
 		5B3565631F1E4BD5007E4A71 /* Smover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B3565661F1E4BD5007E4A71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B3565681F1E4BD5007E4A71 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		5B3565831F1E55A6007E4A71 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				5B2C86A31F2B49CF00C5240E /* ColdTurkeyModeIsActive.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				5B2C86911F29CDFD00C5240E /* DiaryViewController.swift in Sources */,
 				5BB12B1D1F2212DD008C6434 /* OptionsViewController.swift in Sources */,
 				5B2C869E1F29F21B00C5240E /* DiaryDetailView.swift in Sources */,
+				5B2C86A41F2B49CF00C5240E /* ColdTurkeyModeIsActive.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
