@@ -13,6 +13,7 @@ class DiaryViewController: UICollectionViewController {
     
     let viewTitle = "Diary"
     let diaryCellID = "diaryCellID"
+    let transition = AddEntryViewTransition()
     var fetchedResultsController: NSFetchedResultsController<DiaryEntry>?
     
     override func viewDidLoad() {
@@ -42,12 +43,13 @@ class DiaryViewController: UICollectionViewController {
     func setupDiaryView() {
         title = viewTitle
         collectionView?.backgroundColor = .white
-        
     }
     
     func addDiaryEntry() {
         let detailView = DiaryDetailView()
-        navigationController?.pushViewController(detailView, animated: true)
+        detailView.transitioningDelegate = self
+//        let detailView = storyboard!.instantiateViewController(withIdentifier: "DetailView") as! DetailController
+        present(detailView, animated: true, completion: nil) // Uses the new Transition
     }
     
     override init(collectionViewLayout layout: UICollectionViewLayout) {
@@ -108,7 +110,7 @@ extension DiaryViewController: UICollectionViewDelegateFlowLayout {
             let selectedEntry = selectedCell as DiaryEntry
             let diaryDetailView = DiaryDetailView()
             diaryDetailView.diaryEntry = selectedEntry
-    
+            diaryDetailView.transitioningDelegate = self
             navigationController?.pushViewController(diaryDetailView, animated: true)
         }
     }
@@ -141,4 +143,16 @@ extension DiaryViewController {
 }
 
 
+extension DiaryViewController: UIViewControllerTransitioningDelegate {
+ 
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return nil
+    }
+
+}
 

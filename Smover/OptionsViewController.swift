@@ -38,6 +38,7 @@ class OptionsViewController: UICollectionViewController {
         super.viewDidAppear(animated)
         
         self.navigationController?.topViewController?.title = viewTitle
+        self.navigationController?.topViewController?.navigationItem.rightBarButtonItems = nil
     }
     
     // MARK: Supplementary Views
@@ -83,7 +84,7 @@ extension OptionsViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 120)
+        return CGSize(width: collectionView.frame.width, height: 50)
     }
     
     

@@ -31,6 +31,7 @@ class HomeViewController: UIViewController {
         
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.barStyle = .black
+        self.navigationController?.topViewController?.navigationItem.rightBarButtonItems = nil
     }
     
     func setupHomeView() {
@@ -41,7 +42,7 @@ class HomeViewController: UIViewController {
         view.addSubview(scrollViewContainer)
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":scrollViewContainer]))
         view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0":scrollViewContainer]))
-        
+        self.navigationController?.topViewController?.navigationItem.rightBarButtonItems = nil
     }
 
 }

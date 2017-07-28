@@ -13,7 +13,7 @@ class SingleOption: UICollectionViewCell {
     let optionText: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Test"
+        label.text = "Set Cold Turkey Mode Active"
         return label
     }()
     
@@ -24,15 +24,24 @@ class SingleOption: UICollectionViewCell {
         return optionSwitch
     }()
     
+    let optionSeperatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(white: 0.5, alpha: 1.0)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .white
         
         addSubview(optionText)
         addSubview(optionToggle)
+        addSubview(optionSeperatorView)
         
         applyOptionTextConstraints()
         applyOptionToggleConstraints()
+        addSeperatorViewConstraints()
         
         setupOptionValues()
     }
@@ -41,22 +50,30 @@ class SingleOption: UICollectionViewCell {
         optionToggle.isOn = OptionsLoader.isColdTurkeyActive()
     }
     
-    func applyOptionToggleConstraints() {
-        let leftConstraint = NSLayoutConstraint(item: optionText, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1, constant: 20)
-        let topConstraint = NSLayoutConstraint(item: optionToggle, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0)
-        let bottomConstraint = NSLayoutConstraint(item: optionToggle, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0)
-        let heightConstriant = NSLayoutConstraint(item: optionText, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 1, constant: 0)
-        
-        NSLayoutConstraint.activate([leftConstraint, topConstraint, bottomConstraint, heightConstriant])
-    }
+    
     
     func applyOptionTextConstraints() {
-        let rightConstraint = NSLayoutConstraint(item: optionToggle, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1, constant: -20)
-        let topConstraint = NSLayoutConstraint(item: optionToggle, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0)
-        let bottomConstraint = NSLayoutConstraint(item: optionToggle, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0)
-        let heightConstriant = NSLayoutConstraint(item: optionToggle, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 1, constant: 0)
+        let leftConstraint = NSLayoutConstraint(item: optionText, attribute: .left, relatedBy: .equal, toItem: self, attribute: .left, multiplier: 1, constant: 20)
+        let heightConstriant = NSLayoutConstraint(item: optionText, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 1, constant: 0)
+        let centerYConstraint = NSLayoutConstraint(item: optionText, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0)
         
-        NSLayoutConstraint.activate([rightConstraint, topConstraint, bottomConstraint, heightConstriant])
+        NSLayoutConstraint.activate([leftConstraint, heightConstriant, centerYConstraint])
+    }
+    
+    func applyOptionToggleConstraints() {
+        let rightConstraint = NSLayoutConstraint(item: optionToggle, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1, constant: -20)
+        let centerYConstraint = NSLayoutConstraint(item: optionToggle, attribute: .centerY, relatedBy: .equal, toItem: optionText, attribute: .centerY, multiplier: 1, constant: 0)
+        
+        NSLayoutConstraint.activate([rightConstraint, centerYConstraint])
+    }
+    
+    func addSeperatorViewConstraints() {
+        let rightConstriant = NSLayoutConstraint(item: optionSeperatorView, attribute: .right, relatedBy: .equal, toItem: self, attribute: .right, multiplier: 1, constant: 0)
+        let widthConstraint = NSLayoutConstraint(item: optionSeperatorView, attribute: .width, relatedBy: .equal, toItem: self, attribute: .width, multiplier: 0.9, constant: 0)
+        let heightConstraint = NSLayoutConstraint(item: optionSeperatorView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 1)
+        let bottomConstraint = NSLayoutConstraint(item: optionSeperatorView, attribute: .bottom, relatedBy: .equal, toItem: self, attribute: .bottom, multiplier: 1, constant: 0)
+        
+        NSLayoutConstraint.activate([rightConstriant, widthConstraint, heightConstraint, bottomConstraint])
     }
     
     func handleSwitchChange(_ switchValue:UISwitch) {
