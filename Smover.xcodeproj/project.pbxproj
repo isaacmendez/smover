@@ -199,7 +199,7 @@
 				TargetAttributes = {
 					5B3565621F1E4BD4007E4A71 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = UXSJNQ32KF;
+						DevelopmentTeam = 5SBN3LVUFX;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -363,8 +363,8 @@
 		5B3565791F1E4BD5007E4A71 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = UXSJNQ32KF;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				DEVELOPMENT_TEAM = 5SBN3LVUFX;
 				INFOPLIST_FILE = Smover/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.youngglasgowtalent.Smover;
@@ -376,8 +376,8 @@
 		5B35657A1F1E4BD5007E4A71 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = UXSJNQ32KF;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				DEVELOPMENT_TEAM = 5SBN3LVUFX;
 				INFOPLIST_FILE = Smover/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.youngglasgowtalent.Smover;

@@ -115,10 +115,10 @@ class DiaryDetailView: UIViewController, UIViewControllerTransitioningDelegate {
     
     func applyNavigationConstraints() {
         let dismissLeftConstraint = NSLayoutConstraint(item: dismissViewButton, attribute: .left, relatedBy: .equal, toItem: self.view, attribute: .left, multiplier: 1, constant: 10)
-        let dismissTopConstraint = NSLayoutConstraint(item: dismissViewButton, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 10)
+        let dismissTopConstraint = NSLayoutConstraint(item: dismissViewButton, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 20)
         let dismissHeightConstraint = NSLayoutConstraint(item: dismissViewButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 40)
         
-        let saveTopConstraint = NSLayoutConstraint(item: saveNoteButton, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 10)
+        let saveTopConstraint = NSLayoutConstraint(item: saveNoteButton, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 20)
         let saveRightConstraint = NSLayoutConstraint(item: saveNoteButton, attribute: .right, relatedBy: .equal, toItem: self.view, attribute: .right, multiplier: 1, constant: -10)
         let saveHeightConstraint = NSLayoutConstraint(item: saveNoteButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 40)
         

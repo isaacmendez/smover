@@ -44,12 +44,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setupNavigationStyle() {
-        UINavigationBar.appearance().barTintColor = UIColor(red: 230/255, green: 20/255, blue: 20/255, alpha: 1)
+        UINavigationBar.appearance().barTintColor = UIColor(red: 255/255, green: 58/255, blue: 30/255, alpha: 1)
         UINavigationBar.appearance().shadowImage = UIImage()
         
         let navigationBackgroundBar: UIView = {
             let view = UIView()
-            view.backgroundColor = UIColor(red: 220/255, green: 10/255, blue: 10/255, alpha: 1)
+            view.backgroundColor = UIColor(red: 255/255, green: 58/255, blue: 50/255, alpha: 1)
             view.translatesAutoresizingMaskIntoConstraints = false
             return view
         }()
@@ -84,7 +84,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         loadOptions()
     
         let homeViewController = HomeViewController()
-        homeViewController.tabBarItem.image = UIImage(named: "smover-30")
+        homeViewController.tabBarItem.image = UIImage(named: "Smover-40")
         
         let collectionViewFlowLayout = UICollectionViewFlowLayout()
         let optionsViewController = OptionsViewController(collectionViewLayout: collectionViewFlowLayout)
