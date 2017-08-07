@@ -76,7 +76,15 @@ class HomeViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.timeSavedCalculator.adjustTimeSaved(false)
-            self.lifeSavedTimeView.text = self.timeSavedCalculator.printTimeSaved()
+            
+            UIView.animate(withDuration: 1, animations: {
+                self.lifeSavedTimeView.alpha = 0
+            })
+           
+            UIView.animate(withDuration: 1, animations: {
+                self.lifeSavedTimeView.text = self.timeSavedCalculator.printTimeSaved()
+                self.lifeSavedTimeView.alpha = 1
+            })
         }
     }
     
@@ -84,7 +92,14 @@ class HomeViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.timeSavedCalculator.adjustTimeSaved(true)
-            self.lifeSavedTimeView.text = self.timeSavedCalculator.printTimeSaved()
+            UIView.animate(withDuration: 1, animations: {
+                self.lifeSavedTimeView.alpha = 0
+            })
+            
+            UIView.animate(withDuration: 1, animations: {
+                self.lifeSavedTimeView.text = self.timeSavedCalculator.printTimeSaved()
+                self.lifeSavedTimeView.alpha = 1
+            })
         }
     }
     
