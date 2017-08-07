@@ -38,6 +38,7 @@ class OptionsViewController: UICollectionViewController {
         
         self.navigationController?.topViewController?.title = viewTitle
         self.navigationController?.topViewController?.navigationItem.rightBarButtonItems = nil
+        self.navigationController?.topViewController?.navigationItem.setLeftBarButton(nil, animated: true)
     }
     
     

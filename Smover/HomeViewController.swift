@@ -56,7 +56,24 @@ class HomeViewController: UIViewController {
         
         self.navigationController?.navigationBar.tintColor = .white
         self.navigationController?.navigationBar.barStyle = .black
-        self.navigationController?.topViewController?.navigationItem.rightBarButtonItems = nil
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let resistedBarButtonItem = UIBarButtonItem(title: "Resisted!", style: .plain, target: self, action: #selector(addResistedAction))
+        self.navigationController?.topViewController?.navigationItem.setRightBarButton(resistedBarButtonItem, animated: true)
+        
+        let gaveInBarButtonItem = UIBarButtonItem(title: "Gave In", style: .plain, target: self, action: #selector(addGaveInAction))
+        self.navigationController?.topViewController?.navigationItem.setLeftBarButton(gaveInBarButtonItem, animated: true)
+    }
+    
+    func addResistedAction() {
+        
+    }
+    
+    func addGaveInAction() {
+        
     }
     
     func setupHomeView() {

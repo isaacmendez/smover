@@ -37,6 +37,7 @@ class DiaryViewController: UICollectionViewController {
         
         self.navigationController?.topViewController?.title = viewTitle
         self.navigationController?.topViewController?.navigationItem.setRightBarButton(addButton, animated: true)
+        self.navigationController?.topViewController?.navigationItem.setLeftBarButton(nil, animated: true)
     }
     
     func setupDiaryView() {
