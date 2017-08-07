@@ -11,6 +11,8 @@ class HomeViewController: UIViewController {
     
     let viewTitle = "Smover"
     
+    let timeSavedCalculator = TimeSavedCalculator()
+    
     lazy var scrollViewContainer: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .white
@@ -48,6 +50,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         setupHomeView()
+        fetchTimeSaved()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -66,6 +69,7 @@ class HomeViewController: UIViewController {
         
         let gaveInBarButtonItem = UIBarButtonItem(title: "Gave In", style: .plain, target: self, action: #selector(addGaveInAction))
         self.navigationController?.topViewController?.navigationItem.setLeftBarButton(gaveInBarButtonItem, animated: true)
+        
     }
     
     func addResistedAction() {
@@ -74,6 +78,10 @@ class HomeViewController: UIViewController {
     
     func addGaveInAction() {
         
+    }
+    
+    func fetchTimeSaved() {
+        self.lifeSavedTimeView.text = timeSavedCalculator.printTimeSaved()
     }
     
     func setupHomeView() {

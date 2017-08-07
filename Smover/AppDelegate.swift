@@ -12,6 +12,31 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    //Temporary User for workign just now
+    func addTemporaryUser() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        do {
+            let userList = try context.fetch(fetchRequest) as? [User]
+            if let result = userList {
+                if result.count > 0 {
+                    return
+                } else {
+                    let user = User(entity: User.entity(), insertInto: context) as User
+                    user.userName = "Morpheus"
+                    user.age = 800
+                    user.lifeSavedInTimeInMinutes = 0
+                    try context.save()
+                }
+            }
+        
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+    }
 
     // Checks if the user has logged in before and returns a boolean
     func userHasPreviouslyLoggedIn() -> Bool {
@@ -81,6 +106,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         loadOptions()
+        // Temporary User Setup
+        addTemporaryUser()
     
         let homeViewController = HomeViewController()
         homeViewController.tabBarItem.image = UIImage(named: "Smover-40")
@@ -105,6 +132,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         
         setupNavigationStyle()
+        
         application.statusBarStyle = .lightContent
        
         return true

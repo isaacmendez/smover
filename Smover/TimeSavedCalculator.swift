@@ -36,8 +36,8 @@ final class TimeSavedCalculator {
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
         do {
-            let user = try context.fetch(fetchRequest)
-            if let fetchedUser = user[0] as? User  {
+            let user = try context.fetch(fetchRequest) as? [User]
+            if let fetchedUser = user?[0] {
                 currentlySavedTimeInMinutes = fetchedUser.lifeSavedInTimeInMinutes ?? 0
                 if let currentlySavedTimeInMinutes = currentlySavedTimeInMinutes {
                     let timeConvertedToFormat = getTimeSaved(fromSuppliedMinutes: currentlySavedTimeInMinutes)
