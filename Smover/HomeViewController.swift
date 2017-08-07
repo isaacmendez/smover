@@ -74,10 +74,18 @@ class HomeViewController: UIViewController {
     
     func addResistedAction() {
         
+        DispatchQueue.main.async {
+            self.timeSavedCalculator.adjustTimeSaved(false)
+            self.lifeSavedTimeView.text = self.timeSavedCalculator.printTimeSaved()
+        }
     }
     
     func addGaveInAction() {
         
+        DispatchQueue.main.async {
+            self.timeSavedCalculator.adjustTimeSaved(true)
+            self.lifeSavedTimeView.text = self.timeSavedCalculator.printTimeSaved()
+        }
     }
     
     func fetchTimeSaved() {
