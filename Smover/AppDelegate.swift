@@ -93,8 +93,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let diaryViewController = DiaryViewController(collectionViewLayout: cvflowlayout)
         diaryViewController.tabBarItem.image = UIImage(named: "smover-30")
         
-        if userHasPreviouslyLoggedIn() {
-            let welcomeViewController = WelcomeViewController()
+        if !userHasPreviouslyLoggedIn() {
+//            let welcomeViewController = WelcomeViewController()
         }
     
         let tabController = setupTabBarController(with: [homeViewController, diaryViewController, optionsViewController])

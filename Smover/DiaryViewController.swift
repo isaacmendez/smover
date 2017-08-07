@@ -93,11 +93,18 @@ extension DiaryViewController: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let diaryCell = collectionView.dequeueReusableCell(withReuseIdentifier: diaryCellID, for: indexPath) as! DiaryCell
         
-        if let currentDiaryEntry = fetchedResultsController?.fetchedObjects,
-        let entry = currentDiaryEntry[indexPath.item] as? DiaryEntry {
+        if let currentDiaryEntry = fetchedResultsController?.fetchedObjects {
+            let entry = currentDiaryEntry[indexPath.item] as DiaryEntry
             diaryCell.diaryTitleView.text = entry.title
             diaryCell.diaryPreviewView.text = entry.entryBody
             
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "EEEE, MMM d, yyyy"
+            
+            if let date = entry.date as? Date {
+                let displayDate = dateFormatter.string(from: date)
+                diaryCell.diaryDateView.text = "\(displayDate)"
+            }
         }
         return diaryCell
     }
@@ -134,7 +141,7 @@ extension DiaryViewController: UICollectionViewDelegateFlowLayout {
 extension DiaryViewController {
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         if type == .insert {
-            navigationController?.popViewController(animated: true)
+            let _ = navigationController?.popViewController(animated: true)
             collectionView?.insertItems(at: [newIndexPath!])
             collectionView?.scrollToItem(at: newIndexPath!, at: .top, animated: true)
         }
