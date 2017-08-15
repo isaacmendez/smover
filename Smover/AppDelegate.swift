@@ -4,6 +4,14 @@
 //
 //  Created by Laurie Gray on 18/07/2017.
 //
+// TODO: Everytime the app opens/closes check the last login time
+// Subtract the current time from the last login time
+// Figure out how many people smoke per day
+// Figure out how much time they would lose on average over 24 hours
+// 20 x 11 = 220 minutes per day lost
+// 20 / 24 = 0.833 per hour ( in minutes this is 0.8333 * 11) = 9.163 minutes per hour
+// Amount of hours saved is 9.163 * hours resisted
+// Add/Subtract the time since last logged in to the amount already saved
 
 import UIKit
 import CoreData
