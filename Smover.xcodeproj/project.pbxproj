@@ -22,6 +22,7 @@
 		5B3565821F1E52C4007E4A71 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3565811F1E52C4007E4A71 /* HomeViewController.swift */; };
 		5BB12B1D1F2212DD008C6434 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB12B1C1F2212DD008C6434 /* OptionsViewController.swift */; };
 		5BB12B231F221D7F008C6434 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BB12B221F221D7F008C6434 /* Assets.xcassets */; };
+		5BB6A5001F3895E00087EA52 /* TimeSavedCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB6A4FF1F3895E00087EA52 /* TimeSavedCalculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		5B3565811F1E52C4007E4A71 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5BB12B1C1F2212DD008C6434 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		5BB12B221F221D7F008C6434 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5BB6A4FF1F3895E00087EA52 /* TimeSavedCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSavedCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				5B2C86A31F2B49CF00C5240E /* ColdTurkeyModeIsActive.swift */,
+				5BB6A4FF1F3895E00087EA52 /* TimeSavedCalculator.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				5B2C86911F29CDFD00C5240E /* DiaryViewController.swift in Sources */,
 				5B2C86A71F2B665900C5240E /* AddEntryViewTransition.swift in Sources */,
 				5BB12B1D1F2212DD008C6434 /* OptionsViewController.swift in Sources */,
+				5BB6A5001F3895E00087EA52 /* TimeSavedCalculator.swift in Sources */,
 				5B2C869E1F29F21B00C5240E /* DiaryDetailView.swift in Sources */,
 				5B2C86A41F2B49CF00C5240E /* ColdTurkeyModeIsActive.swift in Sources */,
 			);
@@ -363,7 +367,7 @@
 		5B3565791F1E4BD5007E4A71 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5SBN3LVUFX;
 				INFOPLIST_FILE = Smover/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -376,7 +380,7 @@
 		5B35657A1F1E4BD5007E4A71 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5SBN3LVUFX;
 				INFOPLIST_FILE = Smover/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

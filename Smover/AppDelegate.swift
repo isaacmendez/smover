@@ -3,8 +3,15 @@
 //  Smover
 //
 //  Created by Laurie Gray on 18/07/2017.
-//  Copyright © 2017 Young Glasgow Talent. All rights reserved.
 //
+// TODO: Everytime the app opens/closes check the last login time
+// Subtract the current time from the last login time
+// Figure out how many people smoke per day
+// Figure out how much time they would lose on average over 24 hours
+// 20 x 11 = 220 minutes per day lost
+// 20 / 24 = 0.833 per hour ( in minutes this is 0.8333 * 11) = 9.163 minutes per hour
+// Amount of hours saved is 9.163 * hours resisted
+// Add/Subtract the time since last logged in to the amount already saved
 
 import UIKit
 import CoreData
@@ -13,6 +20,31 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    //Temporary User for workign just now
+    func addTemporaryUser() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        do {
+            let userList = try context.fetch(fetchRequest) as? [User]
+            if let result = userList {
+                if result.count > 0 {
+                    return
+                } else {
+                    let user = User(entity: User.entity(), insertInto: context) as User
+                    user.userName = "Morpheus"
+                    user.age = 800
+                    user.lifeSavedInTimeInMinutes = 0
+                    try context.save()
+                }
+            }
+        
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+    }
 
     // Checks if the user has logged in before and returns a boolean
     func userHasPreviouslyLoggedIn() -> Bool {
@@ -82,6 +114,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         loadOptions()
+        // Temporary User Setup
+        addTemporaryUser()
     
         let homeViewController = HomeViewController()
         homeViewController.tabBarItem.image = UIImage(named: "Smover-40")
@@ -94,8 +128,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let diaryViewController = DiaryViewController(collectionViewLayout: cvflowlayout)
         diaryViewController.tabBarItem.image = UIImage(named: "smover-30")
         
-        if userHasPreviouslyLoggedIn() {
-            let welcomeViewController = WelcomeViewController()
+        if !userHasPreviouslyLoggedIn() {
+//            let welcomeViewController = WelcomeViewController()
         }
     
         let tabController = setupTabBarController(with: [homeViewController, diaryViewController, optionsViewController])
@@ -106,6 +140,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         
         setupNavigationStyle()
+        
         application.statusBarStyle = .lightContent
        
         return true

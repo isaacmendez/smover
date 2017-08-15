@@ -3,7 +3,6 @@
 //  Smover
 //
 //  Created by Laurie Gray on 28/07/2017.
-//  Copyright © 2017 Young Glasgow Talent. All rights reserved.
 //
 
 import UIKit

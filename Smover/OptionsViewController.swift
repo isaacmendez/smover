@@ -3,7 +3,6 @@
 //  Smover
 //
 //  Created by Laurie Gray on 21/07/2017.
-//  Copyright © 2017 Young Glasgow Talent. All rights reserved.
 //
 
 import UIKit
@@ -39,6 +38,17 @@ class OptionsViewController: UICollectionViewController {
         
         self.navigationController?.topViewController?.title = viewTitle
         self.navigationController?.topViewController?.navigationItem.rightBarButtonItems = nil
+        self.navigationController?.topViewController?.navigationItem.setLeftBarButton(nil, animated: true)
+    }
+    
+    
+    override init(collectionViewLayout layout: UICollectionViewLayout) {
+        super.init(collectionViewLayout: layout)
+        title = viewTitle
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: Supplementary Views
